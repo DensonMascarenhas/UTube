@@ -1,0 +1,28 @@
+<div class="container" style="margin-top:20px;" >
+<nav class="navbar bg-light">
+<div class="container-fluid">
+  <a class="navbar-brand" href="<%= root_path %>">
+   <img src="<%= asset_url('youtube.png') %>" alt="Logo" width="45" height=40"" class="d-inline-block align-text-top">
+    UTube
+  </a>
+</div>
+</nav>
+  <div class="jumbotron" >
+  <% @videos.each do |v| %>
+
+  <div class="card text-center">
+  <div class="card-body">
+  <iframe width="560" height="315" src="<%=v.link %>" frameborder="0" allowfullscreen="false"></iframe>    
+  <p class="card-text"><%=v.title%></p>
+  <p class="card-text"><%=v.description%></p>
+
+    <a href="#" class="btn btn-primary">View Full</a>
+  </div>
+  <div class="card-footer text-muted">
+    Uploaded On: <%= v.created_at %>
+  </div>
+</div>
+<% end %>
+
+</div>
+</div>
