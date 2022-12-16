@@ -1,9 +1,9 @@
 
-<% if @videos.errors.any? %>
+<% if @video.errors.any? %>
 <div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading"><%= pluralize(@videos.errors.count, "error") %> prohibited this todo from being saved:!</h4>
+  <h4 class="alert-heading"><%= pluralize(@video.errors.count, "error") %> prohibited this todo from being saved:!</h4>
     <ul>
-        <% @videos.errors.each do |error| %>
+        <% @video.errors.each do |error| %>
           <li class="mb-0"><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
     
   <% end %>
 
-<%= form_with(model: @videos) do |f| %>
+<%= form_with(model: @video) do |f| %>
 
 
 <div class="mb-3 row">

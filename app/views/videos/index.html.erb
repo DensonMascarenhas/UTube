@@ -5,12 +5,13 @@
    <img src="<%= asset_url('youtube.png') %>" alt="Logo" width="45" height=40"" class="d-inline-block align-text-top">
     UTube
   </a>
+  <%= link_to "Add Your Video", new_video_path, {class: "btn btn-outline-success"} %>
 </div>
 </nav>
   <div class="jumbotron" >
   <% @videos.each do |v| %>
 
-  <div class="card text-center">
+  <div class="card text-center" style="margin-top:20px;">
   <div class="card-body">
   <iframe width="560" height="315" src="<%=v.link %>" frameborder="0" allowfullscreen="false"></iframe>    
   <p class="card-text"><%=v.title%></p>
