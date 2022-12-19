@@ -32,6 +32,11 @@
 </div>
 
 <div class="mb-3 row">
+    <%= f.label :tag_list, "Tags",{class:"form-label"} %>
+    <%= f.text_field :tag_list, {class:"form-control", placeholder:"Enter tags for this video....", required: "true"} %>
+</div>
+
+<div class="mb-3 row">
 <center>
     <%=f.submit(class:"btn btn-primary mb-3")%>
     </center>

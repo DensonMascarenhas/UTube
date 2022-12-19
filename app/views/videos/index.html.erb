@@ -5,19 +5,29 @@
    <img src="<%= asset_url('youtube.png') %>" alt="Logo" width="45" height=40"" class="d-inline-block align-text-top">
     UTube
   </a>
-  <%= link_to "Add Your Video", new_video_path, {class: "btn btn-outline-success"} %>
+  <% if user_signed_in? %>
+  <%= link_to "Your Profile", profile_path(current_user.id), {class: "btn btn-outline-success"} %>
+  <% else %>
+  <%= link_to "Add Your Profile", new_user_registration_path, {class: "btn btn-outline-success"} %>
+<%end%>
 </div>
 </nav>
   <div class="jumbotron" >
-  <% @videos.each do |v| %>
 
+
+  <% @tags.each do |t| %>
+  <%= link_to t.name,videos_path(t.name),{class:"btn btn-outline-dark"} %>
+
+  <% end %>
+
+  <% @videos.each do |v| %>
   <div class="card text-center" style="margin-top:20px;">
   <div class="card-body">
   <iframe width="560" height="315" src="<%=v.link %>" frameborder="0" allowfullscreen="false"></iframe>    
   <p class="card-text"><%=v.title%></p>
   <p class="card-text"><%=v.description%></p>
 
-    <a href="#" class="btn btn-primary">View Full</a>
+  <%= link_to "View Now",video_path(v.id), {class: "btn btn-success"}%>
   </div>
   <div class="card-footer text-muted">
     Uploaded On: <%= v.created_at %>
